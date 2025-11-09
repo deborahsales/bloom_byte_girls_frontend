@@ -1,0 +1,17 @@
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__image {
+    height: 300px;
+  }
+}
+
+.selection {
+  margin-top: var(--space-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+}

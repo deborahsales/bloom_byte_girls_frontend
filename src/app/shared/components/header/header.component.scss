@@ -1,0 +1,49 @@
+.header {
+  mat-toolbar {
+    background-color: var(--white);
+  }
+
+  &__logo {
+    width: 200px;
+    cursor: pointer;
+  }
+  &__spacer {
+    flex: 1 1 auto;
+  }
+
+  &__menu-button {
+    display: none;
+
+    @media (max-width: 768px) {
+      position: absolute;
+      z-index: 1000;
+      background-color: transparent;
+      border: none;
+      top: var(--space-xs);
+      right: var(--space-xs);
+      display: block;
+
+      mat-icon {
+        color: var(--accent-color);
+        font-size: 25px;
+      }
+
+      mat-icon:hover {
+        color: var(--primary-color);
+        cursor: pointer;
+      }
+    }
+  }
+
+  nav {
+    display: flex;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+button {
+  margin-left: var(--space-xs);
+}

@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./styles/variables-colors";
+@use "./styles/variables-fonts";
+@use "./styles/variables-spacing";
+@use "./styles/reset";
+@use "./styles/buttons";
+
