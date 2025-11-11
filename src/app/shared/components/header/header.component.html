@@ -16,7 +16,12 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/" routerLinkActive="active">
+        <button
+          mat-menu-item
+          routerLink="/"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="active"
+        >
           Home
         </button>
         <button mat-menu-item routerLink="/trilhas" routerLinkActive="active">
@@ -38,7 +43,13 @@
         >
         <a routerLink="/trilhas" routerLinkActive="active">Trilhas</a>
         <a routerLink="/projetos" routerLinkActive="active">Projetos</a>
-        <button routerLink="/contato" routerLinkActive="active">Contato</button>
+        <button
+          class="contact-button"
+          routerLink="/contato"
+          routerLinkActive="active"
+        >
+          Contato
+        </button>
       </nav>
     </mat-toolbar>
   </app-container>

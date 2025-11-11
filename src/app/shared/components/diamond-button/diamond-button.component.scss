@@ -15,7 +15,7 @@
     -webkit-mask: url("/assets/losango.svg") no-repeat center / contain;
     mask: url("/assets/losango.svg") no-repeat center / contain;
 
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
   }
 
   &__icon {
@@ -43,6 +43,12 @@
 
     .group__label {
       color: var(--secondary-accent-color);
+    }
+  }
+
+  &:hover {
+    .group__button {
+      transform: scale(1.2);
     }
   }
 }
