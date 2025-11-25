@@ -11,7 +11,22 @@
 .selection {
   margin-top: var(--space-sm);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: var(--space-md);
+}
+
+.series {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 710px;
+  margin: var(--space-xl) auto;
+
+  @media (max-width: 860px) {
+    justify-content: center;
+  }
 }

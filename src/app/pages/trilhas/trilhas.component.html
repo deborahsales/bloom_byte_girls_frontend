@@ -7,47 +7,25 @@
     />
   </div>
   <div class="selection">
+    @for(tema of temas; track tema.id){
     <app-diamond-button
-      [texto]="'Lógica'"
-      [alt]="'Lógica de programação'"
-      [imagem]="'assets/logica.svg'"
-      [ativo]="selection === 'logica'"
-      (selecionado)="changeSelection('logica')"
+      [texto]="tema.titulo === 'Lógica de programação' ? 'Lógica' : tema.titulo"
+      [alt]="tema.titulo"
+      [imagem]="'assets/' + sanitize(tema.titulo) + '.svg'"
+      [ativo]="selection === tema.id"
+      (selecionado)="changeSelection(tema.id)"
     ></app-diamond-button>
-    <app-diamond-button
-      [texto]="'Python'"
-      [alt]="'Python'"
-      [imagem]="'assets/python.svg'"
-      [ativo]="selection === 'python'"
-      (selecionado)="changeSelection('python')"
-    ></app-diamond-button>
-    <app-diamond-button
-      [texto]="'Streamlit'"
-      [alt]="'Streamlit'"
-      [imagem]="'assets/streamlit.svg'"
-      [ativo]="selection === 'streamlit'"
-      (selecionado)="changeSelection('streamlit')"
-    ></app-diamond-button>
-    <app-diamond-button
-      [texto]="'App Inventor'"
-      [alt]="'App Inventor'"
-      [imagem]="'assets/app-inventor.svg'"
-      [ativo]="selection === 'appinventor'"
-      (selecionado)="changeSelection('appinventor')"
-    ></app-diamond-button>
-    <app-diamond-button
-      [texto]="'Thunkable'"
-      [alt]="'Thunkable'"
-      [imagem]="'assets/thunkable.svg'"
-      [ativo]="selection === 'thunkable'"
-      (selecionado)="changeSelection('thunkable')"
-    ></app-diamond-button>
-    <app-diamond-button
-      [texto]="'Kodular'"
-      [alt]="'Kodular'"
-      [imagem]="'assets/kodular.svg'"
-      [ativo]="selection === 'kodular'"
-      (selecionado)="changeSelection('kodular')"
-    ></app-diamond-button>
+    }
+  </div>
+
+  <div class="series">
+    @if(isLoading()){
+
+    <app-progress-spinner></app-progress-spinner>
+    } @else { @if(series.length === 0){
+    <p>Nenhum conteúdo encontrado...</p>
+    } @for(serie of series; track serie.id){
+    <app-series-card [serie]="serie"></app-series-card>
+    }}
   </div>
 </app-container>

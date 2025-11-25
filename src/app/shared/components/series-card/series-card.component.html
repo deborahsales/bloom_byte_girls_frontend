@@ -1,0 +1,21 @@
+<article class="card">
+  <img
+    [src]="
+      'https://i.ytimg.com/vi/' + serie.videos[0].idYoutube + '/hqdefault.jpg'
+    "
+    class="card-image"
+    [alt]="'Thumbnail do curso' + serie.titulo"
+  />
+  <div class="card-body">
+    <h2 class="card-title">{{ serie.titulo }}</h2>
+    <a
+      class="card-channel-button"
+      [href]="
+        'https://www.youtube.com/channel/' + serie.videos[0].canal.idYoutube
+      "
+      target="_blank"
+      rel="noopener noreferrer"
+      >{{ serie.videos[0].canal.titulo }}</a
+    >
+  </div>
+</article>
