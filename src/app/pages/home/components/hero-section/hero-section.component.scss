@@ -16,6 +16,11 @@
     h1 {
       font-size: var(--font-size-xl);
       color: var(--primary-color);
+
+      @media (max-width: 768px) {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--space-xs);
+      }
     }
     p {
       font-size: var(--font-size-md);
@@ -31,11 +36,17 @@
   }
 
   @media (max-width: 768px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    gap: var(--space-sm);
   }
 }
 
 button {
   margin-top: var(--space-xs);
   font-size: var(--font-size-md);
+  white-space: nowrap;
+
+  @media (max-width: 768px) {
+    margin: var(--space-sm) 0;
+  }
 }

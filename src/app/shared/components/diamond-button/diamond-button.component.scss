@@ -16,6 +16,11 @@
     mask: url("/assets/losango.svg") no-repeat center / contain;
 
     transition: background 0.3s ease, transform 0.2s ease;
+
+    @media (max-width: 860px) {
+      width: 60px;
+      height: 60px;
+    }
   }
 
   &__icon {

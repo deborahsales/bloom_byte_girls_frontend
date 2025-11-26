@@ -1,7 +1,8 @@
 import { Component, signal } from '@angular/core';
 import { Serie } from '../../core/interfaces/serie.interface';
-import { Tema } from '../../core/interfaces/tema.interface';
+import { Tema, TemaData } from '../../core/interfaces/tema.interface';
 import { ApiService } from '../../core/services/api.service';
+import { BannerComponent } from '../../shared/components/banner/banner.component';
 import { ContainerComponent } from '../../shared/components/container/container.component';
 import { DiamondButtonComponent } from '../../shared/components/diamond-button/diamond-button.component';
 import { ProgressSpinnerComponent } from '../../shared/components/progress-spinner/progress-spinner.component';
@@ -14,34 +15,21 @@ import { SeriesCardComponent } from '../../shared/components/series-card/series-
     DiamondButtonComponent,
     ProgressSpinnerComponent,
     SeriesCardComponent,
+    BannerComponent,
   ],
   templateUrl: './trilhas.component.html',
   styleUrl: './trilhas.component.scss',
 })
 export class TrilhasComponent {
   selection: number = 4;
-  temas: Tema[] = [];
+  temas: Tema[] = TemaData;
   series: Serie[] = [];
   isLoading = signal(false);
-  isLoadingTema = signal(false);
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     this.isLoading.set(true);
-    this.isLoadingTema.set(true);
-
-    this.apiService.getAll<Tema>('tema').subscribe({
-      next: (res) => {
-        this.temas = res.sort((a, b) => a.id - b.id);
-        this.isLoadingTema.set(false);
-      },
-      error: () => {
-        this.isLoadingTema.set(false);
-      },
-    });
-
-    console.log(this.temas);
 
     this.getAllSeries();
   }

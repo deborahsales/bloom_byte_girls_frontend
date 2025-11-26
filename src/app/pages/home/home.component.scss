@@ -12,11 +12,11 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-xs);
+  font-size: var(--font-size-md);
 
   &__txt {
     color: var(--white);
     text-align: center;
-    font-size: var(--font-size-md);
     line-height: var(--space-md);
     font-family: var(--font-primary);
     font-style: italic;
@@ -31,14 +31,18 @@
   }
 
   &__author {
-    font-size: var(--font-size-md);
     font-family: var(--font-primary);
     color: var(--white);
     font-weight: var(--font-weight-lightbold);
   }
+
+  @media (max-width: 768px) {
+    font-size: var(--font-size-sm);
+  }
 }
 
 .inspiration {
+  width: 100%;
   color: var(--primary-color);
   padding: var(--space-xl) 0;
   text-align: left;
@@ -51,6 +55,10 @@
     max-width: 880px;
     margin-left: auto;
     margin-right: auto;
+
+    @media (max-width: 768px) {
+      margin-bottom: var(--space-sm);
+    }
   }
 
   &__txt {
@@ -75,5 +83,9 @@
   &__highlight {
     color: var(--accent-color);
     font-weight: var(--font-weight-lightbold);
+  }
+
+  @media (max-width: 768px) {
+    padding: var(--space-md);
   }
 }

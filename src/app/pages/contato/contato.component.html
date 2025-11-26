@@ -1,1 +1,65 @@
-<app-container></app-container>
+<app-container>
+  <app-banner></app-banner>
+  <section class="contact">
+    <div class="contact__details">
+      <h1 class="contact__title">Quer contribuir com a Bloom Byte Girls?</h1>
+      <p class="contact__content">
+        Quer sugerir melhorias, indicar conteúdos legais, colaborar com o
+        projeto ou participar de alguma forma? A Bloom Byte Girls está sempre
+        aberta a novas ideias e parcerias.
+      </p>
+      <p class="contact__content">
+        Se você acredita no nosso propósito e quer ajudar meninas a começarem na
+        programação, manda uma mensagem pra gente. Vamos adorar te ouvir!
+      </p>
+    </div>
+
+    @if (isLoading()) {
+    <app-progress-spinner></app-progress-spinner>
+    }
+    <form
+      [formGroup]="contactForm"
+      (ngSubmit)="onSubmit()"
+      class="contact__form"
+    >
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="Nome" formControlName="name" />
+        @if (contactForm.get('name')?.invalid &&
+        contactForm.get('name')?.touched) {
+        <mat-error>Nome é obrigatório</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input
+          matInput
+          type="email"
+          placeholder="Digite seu e-mail"
+          formControlName="email"
+        />
+        @if (contactForm.get('email')?.errors?.['required']) {
+        <mat-error>E-mail é obrigatório</mat-error>
+        } @if (contactForm.get('email')?.errors?.['email']) {
+        <mat-error>Digite um email válido</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Mensagem</mat-label>
+        <textarea
+          matInput
+          placeholder="Mensagem"
+          formControlName="message"
+        ></textarea>
+        @if (contactForm.get('message')?.invalid &&
+        contactForm.get('message')?.touched) {
+        <mat-error>Mensagem é obrigatória</mat-error>
+        }
+      </mat-form-field>
+
+      <button type="submit" class="contact__btn">Enviar</button>
+    </form>
+  </section>
+</app-container>
