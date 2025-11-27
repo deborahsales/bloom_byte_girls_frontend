@@ -1,0 +1,65 @@
+@if(isLoading()){
+<app-container>
+  <nav class="breadcrumbs text-placeholder small"></nav>
+
+  <section class="serie">
+    <section class="serie__list">
+      @for(_ of [1,2,3,4,5,6]; track _){
+      <div class="thumbnail-placeholder"></div>
+      }
+    </section>
+
+    <section class="video-container-placeholder">
+      <div class="video-placeholder"></div>
+      <p class="text-placeholder"></p>
+      <p class="text-placeholder small"></p>
+    </section>
+  </section>
+</app-container>
+} @else{
+<app-container>
+  <nav class="breadcrumbs">
+    <a routerLink="/trilhas/1">Trilhas</a>
+    <span class="breadcrumbs-separator"> > </span>
+
+    <a [routerLink]="'/trilhas/' + serie.tema.id">
+      {{ serie.tema.titulo }}
+    </a>
+    <span class="breadcrumbs-separator"> > </span>
+
+    <span class="current">{{ serie.titulo }}</span>
+  </nav>
+  <section class="serie">
+    <section class="serie__list">
+      @for(video of serie.videos; track video.id){
+      <img
+        [src]="'https://i.ytimg.com/vi/' + video.idYoutube + '/hqdefault.jpg'"
+        class="video-image"
+        [alt]="'Thumbnail do curso' + serie.titulo"
+        (click)="onClick(video.id)"
+      />
+      }
+    </section>
+    <section class="video">
+      <div class="video__wrapper">
+        <youtube-player
+          [videoId]="selectedVideo.idYoutube"
+          suggestedQuality="hd720"
+          class="video__player"
+        >
+        </youtube-player>
+      </div>
+      <p class="video__title">{{ selectedVideo.titulo }}</p>
+      <a
+        class="video__channel-button"
+        [href]="
+          'https://www.youtube.com/channel/' + selectedVideo.canal.idYoutube
+        "
+        target="_blank"
+        rel="noopener noreferrer"
+        >{{ selectedVideo.canal.titulo }}</a
+      >
+    </section>
+  </section>
+</app-container>
+}

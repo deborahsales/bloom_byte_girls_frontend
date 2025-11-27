@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { ContatoComponent } from './pages/contato/contato.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProjetosComponent } from './pages/projetos/projetos.component';
+import { SerieComponent } from './pages/serie/serie.component';
 import { TrilhasComponent } from './pages/trilhas/trilhas.component';
 
 export const routes: Routes = [
@@ -11,7 +12,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'trilhas',
+    path: 'trilhas/:id',
     component: TrilhasComponent,
   },
   {
@@ -21,5 +22,9 @@ export const routes: Routes = [
   {
     path: 'contato',
     component: ContatoComponent,
+  },
+  {
+    path: 'serie/:id',
+    component: SerieComponent,
   },
 ];

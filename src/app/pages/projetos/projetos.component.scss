@@ -10,7 +10,6 @@
     margin-bottom: var(--space-md);
 
     @media (max-width: 768px) {
-      padding: 0 var(--space-md);
       margin-bottom: var(--space-sm);
     }
   }
@@ -23,10 +22,10 @@
     color: var(--txt-dark);
     margin-left: auto;
     margin-right: auto;
+  }
 
-    @media (max-width: 768px) {
-      padding: 0 var(--space-md);
-    }
+  @media (max-width: 768px) {
+    padding: var(--space-md) var(--space-md);
   }
 }
 
@@ -37,6 +36,7 @@
   margin-bottom: var(--space-xxl);
 
   @media (max-width: 768px) {
+    gap: var(--space-lg);
     padding: 0 var(--space-md);
   }
 }

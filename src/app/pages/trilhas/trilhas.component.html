@@ -19,7 +19,9 @@
     } @else { @if(series.length === 0){
     <p>Nenhum conteúdo encontrado...</p>
     } @for(serie of series; track serie.id){
-    <app-series-card [serie]="serie"></app-series-card>
+    <app-series-card [serie]="serie" (clickCard)="onSerieClick($event)"
+      >></app-series-card
+    >
     }}
   </div>
 </app-container>

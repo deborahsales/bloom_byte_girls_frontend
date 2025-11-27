@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Serie } from '../../../core/interfaces/serie.interface';
 
 @Component({
@@ -9,4 +9,9 @@ import { Serie } from '../../../core/interfaces/serie.interface';
 })
 export class SeriesCardComponent {
   @Input() serie!: Serie;
+  @Output() clickCard = new EventEmitter<number>();
+
+  onClick() {
+    this.clickCard.emit(this.serie.id);
+  }
 }
