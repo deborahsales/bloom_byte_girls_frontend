@@ -60,4 +60,34 @@
     font-size: var(--font-size-xs);
     color: rgba(255, 255, 255, 0.7);
   }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: var(--space-sm);
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--dark-color);
+      }
+
+      svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+        transition: fill 0.2s ease;
+      }
+    }
+  }
 }
