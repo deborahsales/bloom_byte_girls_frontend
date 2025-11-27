@@ -1,5 +1,4 @@
 import { Canal } from './canal.interface';
-import { Serie } from './serie.interface';
 
 export interface Video {
   id: number;
@@ -8,6 +7,5 @@ export interface Video {
   idYoutube: string;
   serieId: number;
   canalId: number;
-  serie: Serie;
   canal: Canal;
 }
